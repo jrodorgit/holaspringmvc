@@ -13,4 +13,17 @@ public class HelloController {
 		modelAndView.setViewName("hello");
 		return modelAndView;
 	}
+	
+	@RequestMapping("/helloYYYOI")
+	public ModelAndView helloYYYOI(){
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("helloBis");
+		TipoPermiso tp = new TipoPermiso();
+		tp.setId(1);
+		tp.setNombre("permiso Y");
+		tp.setDescripcion("Descripcion permiso Y");
+		modelAndView.addObject("tp", tp);
+		
+		return modelAndView;
+	}
 }
