@@ -23,6 +23,7 @@ public class TipoPermisoController {
 	
 	@RequestMapping("/nuevoTipoPermiso")
 	public String nuevoTipoPermiso(){
+		System.out.println(service.findById(22));
 		return "tipoPermisoAddBis";
 	}
 	

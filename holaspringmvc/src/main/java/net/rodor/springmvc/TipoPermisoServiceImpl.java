@@ -26,6 +26,11 @@ public class TipoPermisoServiceImpl implements TipoPermisoService {
 		
 		return dao.create(entidad);
 	}
+
+	@Override
+	public TipoPermiso findById(int id) {
+		return dao.find(id);
+	}
 	
 	
 	
