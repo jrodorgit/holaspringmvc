@@ -24,7 +24,7 @@
 
 </head>
 <body>
-<jsp:include page="../../../header.jsp"/>
+<jsp:include page="../header.jsp"/>
 	<div class="container">
 		<div class="row">
 		Esto mostraria un listado de permisos

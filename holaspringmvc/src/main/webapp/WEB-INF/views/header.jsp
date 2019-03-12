@@ -2,12 +2,11 @@
 	<nav class="navbar navbar-inverse navbar-static-top">
 		<div class="container">
 			<div class="navbar-header">
-				<a href="<spring:url value="/"/>" class="navbar-brand">JRODOR Service Center</a>
+				<a href="<spring:url value="/"/>" class="navbar-brand">JRODOR Security Center</a>
 			</div>
 			<ul class="nav navbar-nav">
 				<li><a href="<spring:url value="/permisos/"/>">Permisos Service</a></li>
-				<%-- <li><a href="<spring:url value="/appointments/"/>">Appointments</a></li>
-				<li><a href="<spring:url value="/login/"/>">Sign In</a></li> --%>
+				<li><a href="<spring:url value="/login/"/>">Sign In</a></li>
 			</ul>
 		</div>
 	</nav>

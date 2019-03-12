@@ -1,13 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Kevin's Auto Service Center</title>
+<title>HOME - JRODOR - SPRING MVC - HIBERNATE - SPRING SECURITY</title>
 
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
@@ -27,24 +25,14 @@
 
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+	<jsp:include page="header.jsp"/>
 	<div class="container">
 		<div class="row">
-			<h1>Login Form</h1>
+			<h1>Welcome HOME JRODOR - SPRING MVC - HIBERNATE - SPRING SECURITY!</h1>
+			<h3>Bla bla, bla bla.</h3>
+			<p>Bla bla bla.</p>
+			<p>Try me!</p>
 		</div>
-		<c:url value="/login" var="loginVar"/>
-		<form id="login-form" action="${loginVar}" method="POST">
-			<div class="form-group">
-				<label for="make">Username</label>
-				<input name="custom_username" class="form-control" />
-			</div>
-			<div class="form-group">
-				<label for="model">Password</label>
-				<input type="password" name="custom_password" class="form-control" />
-			</div>
-			<button type="submit" id="btn-save" class="btn btn-primary">Login</button>
-			<sec:csrfInput/>
-		</form>
 	</div>
 </body>
 </html>
