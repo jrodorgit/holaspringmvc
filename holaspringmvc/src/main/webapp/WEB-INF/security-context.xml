@@ -6,7 +6,16 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 	<security:http auto-config="true" use-expressions="false">
-		<security:intercept-url pattern="/**" access="ROLE_USER"/>
+		<!--  por defecto spring mostrara un pagina con un form de autenticacion -->
+		
+		<!--  podemos decirle que muestra una venta tipo pop de autenticacion 
+		<security:http-basic/>
+		-->
+		<!--  formulario de login -->
+		<security:form-login login-page="/login" login-processing-url="/login" username-parameter="custom_username" password-parameter="custom_password"/>
+		
+		<security:intercept-url pattern="/permisos/*" access="ROLE_USER"/>
+		<security:intercept-url pattern="/**" access="ROLE_ANONYMOUS,ROLE_USER"/>
 	</security:http>
 	
 	<security:authentication-manager>

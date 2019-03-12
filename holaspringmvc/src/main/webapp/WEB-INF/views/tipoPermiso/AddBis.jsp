@@ -9,14 +9,13 @@
 <!-- Mensaje -->
 <%=request.getAttribute("msg") %>
 <br/>
-<%=request.getAttribute("tp") %>
+
 
 <!--  formulario add tipo permiso -->
-<form action="addTipoPermiso" method="post">
+<form action="AddBis" method="post">
 <pre>
-Id: <input type="text" name="id" value="id"/>
-Nombre: <input type="text" name="nombre" value="nombre" />
-descripcion: <input type="text" name="descripcion" value="nombre" />
+Nombre: <input type="text" name="nombre" value="nombre permiso" />
+descripcion: <input type="text" name="descripcion" value="descripcion del permiso" />
 <input type="submit" name="Add Nuevo Tipo Permiso" value="Add Nuevo Tipo Permiso"/>
 </pre>
 </form>

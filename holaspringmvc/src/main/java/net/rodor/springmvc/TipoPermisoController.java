@@ -21,20 +21,23 @@ public class TipoPermisoController {
 		this.service = service;
 	}
 	
-	@RequestMapping("/nuevoTipoPermiso")
+	
+	
+	/***
+	@RequestMapping("/tipoPermiso/nuevo")
 	public String nuevoTipoPermiso(){
 		System.out.println(service.findById(22));
-		return "tipoPermisoAddBis";
+		return "tipoPermiso/AddBis";
 	}
 	
-	@RequestMapping(value="/addTipoPermisoBis", method=RequestMethod.POST)
+	@RequestMapping(value="/tipoPermiso/AddBis", method=RequestMethod.POST)
 	public String addTipoPermiso(@ModelAttribute("tp") TipoPermiso tp, ModelMap model){
 		System.out.println(tp);
 		
 		int idTP = service.save(tp);
 		model.addAttribute("msg", "Tipo Permiso Añadido con ID:"+idTP);
 		
-		return "tipoPermisoAddBis";
+		return "tipoPermiso/AddBis";
 	}
-	
+	***/
 }
