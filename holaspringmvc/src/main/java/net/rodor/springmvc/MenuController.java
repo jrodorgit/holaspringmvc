@@ -23,12 +23,13 @@ public class MenuController {
 	@RequestMapping("/permisos")
 	public String goPermisos(ModelMap model){
 		System.out.println("Entrando en goPermisos");
+
 		// llamada al servicio de listar permisos
 		List<TipoPermiso> permisos = serviceTP.listar();
-		System.out.println(permisos);
 		model.addAttribute("lstTP", permisos);
 		return "permisos/lstPermisos";
 	}
+	
 	@RequestMapping("/contact")
 	public String goContact(){
 		System.out.println("Entrando en goContact");

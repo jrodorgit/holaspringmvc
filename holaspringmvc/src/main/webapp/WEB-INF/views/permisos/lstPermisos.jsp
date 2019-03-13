@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -28,11 +29,32 @@
 	<jsp:include page="../header.jsp" />
 	<div class="container">
 		<div class="row">
-			Listado de Permisos.<br />
+			<b>Listado de Permisos.</b>
+			<br/>
 			<c:forEach items="${lstTP}" var="item">
     		${item}<br>
 			</c:forEach>
 		</div>
 	</div>
+
+
+	<!--  formulario add tipo permiso -->
+	
+	<div class="container">
+		<b>Alta nuevo Permiso.</b>
+		<br/>
+		<form action="add" method="post">
+			<pre>
+				Nombre: <input type="text" name="nombre" value="nombre" />
+				descripcion: <input type="text" name="descripcion" value="descripcion" />
+				<input type="submit" name="Add Nuevo  Permiso"
+					value="Add Nuevo  Permiso" />
+			</pre>
+			<sec:csrfInput/>
+		</form>
+	</div>
+
+
+
 </body>
 </html>

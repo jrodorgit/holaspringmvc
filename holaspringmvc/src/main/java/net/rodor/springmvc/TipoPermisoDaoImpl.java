@@ -46,7 +46,7 @@ public class TipoPermisoDaoImpl implements TipoPermisoDao {
 
 	@Override
 	public List<TipoPermiso> listadoPermisos() {
-		String sql = "select per.id_t_permiso, per.nombre, per.descripcion from T_PERMISO per";
+		String sql = "select per.id_t_permiso, per.nombre, per.descripcion from T_PERMISO per order by id_t_permiso desc";
 		TipoPermisoRowMapper rowmapper = new TipoPermisoRowMapper();
 		Object[] args=null;
 		List<TipoPermiso> result =jdbcTemplate.query(sql, args, rowmapper);
