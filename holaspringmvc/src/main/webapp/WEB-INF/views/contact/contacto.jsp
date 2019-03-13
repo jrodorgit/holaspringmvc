@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -25,13 +24,10 @@
 
 </head>
 <body>
-	<jsp:include page="../header.jsp" />
+<jsp:include page="../header.jsp"/>
 	<div class="container">
 		<div class="row">
-			Listado de Permisos.<br />
-			<c:forEach items="${lstTP}" var="item">
-    		${item}<br>
-			</c:forEach>
+		Esto mostraria una pagina publica de contacto!
 		</div>
 	</div>
 </body>

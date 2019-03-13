@@ -6,6 +6,7 @@
 			</div>
 			<ul class="nav navbar-nav">
 				<li><a href="<spring:url value="/permisos/"/>">Permisos Service</a></li>
+				<li><a href="<spring:url value="/contact/"/>">Contact</a></li>
 				<li><a href="<spring:url value="/login/"/>">Sign In</a></li>
 			</ul>
 		</div>

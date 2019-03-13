@@ -1,5 +1,7 @@
 package net.rodor.springmvc;
 
+import java.util.List;
+
 public interface TipoPermisoDao {
 
 	TipoPermiso find(int id);
@@ -7,4 +9,6 @@ public interface TipoPermisoDao {
 	int create(TipoPermiso entidad);
 	
 	void update(TipoPermiso entidad);
+	
+	List<TipoPermiso> listadoPermisos();
 }
