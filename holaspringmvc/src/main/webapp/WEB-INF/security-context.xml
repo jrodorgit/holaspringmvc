@@ -5,6 +5,9 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+	<!--  bean para manejar expresiones -->
+	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
+
 	<security:http auto-config="true" use-expressions="false">
 		<!--  por defecto spring mostrara un pagina con un form de autenticacion -->
 		
@@ -12,7 +15,13 @@
 		<security:http-basic/>
 		-->
 		<!--  formulario de login -->
-		<security:form-login login-page="/login" login-processing-url="/login" username-parameter="custom_username" password-parameter="custom_password"/>
+		<security:form-login login-page="/login" login-processing-url="/login" 
+		username-parameter="custom_username" password-parameter="custom_password"
+		default-target-url="/permisos/"
+		authentication-failure-url="/login?error=true"/>
+		
+		<!-- logout -->
+		<security:logout logout-url="/logout/" logout-success-url="/login?logout=true"/>
 		
 		<security:intercept-url pattern="/permisos/*" access="ROLE_USER"/>
 		<security:intercept-url pattern="/**" access="ROLE_ANONYMOUS,ROLE_USER"/>

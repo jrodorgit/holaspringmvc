@@ -42,6 +42,12 @@
 				<label for="model">Password</label>
 				<input type="password" name="custom_password" class="form-control" />
 			</div>
+			<c:if test="${param.error != null}">
+			<p>Usuario NO valido.</p>
+			</c:if>
+			<c:if test="${param.logout != null}">
+			<p>Hasta luego!</p>
+			</c:if>
 			<button type="submit" id="btn-save" class="btn btn-primary">Login</button>
 			<sec:csrfInput/>
 		</form>
