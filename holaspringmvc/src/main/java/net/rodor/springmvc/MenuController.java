@@ -23,7 +23,7 @@ public class MenuController {
 		return "home";
 	}
 	
-	@RequestMapping("/permisos")
+	/*@RequestMapping("/permisos")
 	public String goPermisos(ModelMap model){
 		System.out.println("Entrando en goPermisos");
 
@@ -31,7 +31,7 @@ public class MenuController {
 		List<TipoPermiso> permisos = serviceTP.listar();
 		model.addAttribute("lstTP", permisos);
 		return "permisos/lstPermisos";
-	}
+	}*/
 	
 	@RequestMapping("/contact")
 	public String goContact(){
