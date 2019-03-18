@@ -34,6 +34,7 @@
 	
 	
 	<bean class="net.rodor.springmvc.security.CustomUserDetailService" name="customUserDetailService"/>
+	<bean class="net.rodor.springmvc.security.CustomAuthenticationProvider" name="customAuthenticationProvider"/>
 	
 	<security:authentication-manager>
 	<!-- ejemplo de autenticacion/autorizacion en fichero -->
@@ -44,8 +45,12 @@
 			</security:user-service> 
 		</security:authentication-provider>
 			-->
-			
+		<!-- servicio para Autenticarse -->
+		<!-- 	
 		<security:authentication-provider user-service-ref="customUserDetailService"/>
+		 -->
+		 <security:authentication-provider ref="customAuthenticationProvider"/>
+		 
 			
 	</security:authentication-manager>
 

@@ -3,11 +3,14 @@ package net.rodor.springmvc;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import net.rodor.springmvc.security.UsuarioPermisos;
 
 @Controller
 @RequestMapping("/permisos")
@@ -38,7 +41,10 @@ public class TipoPermisoController {
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
 	public String addTipoPermiso(@ModelAttribute("tp") TipoPermiso tp, ModelMap model) {
 		
-		System.out.println("Entrando en addTipoPermiso");
+		System.out.println("Entrando en addTipoPermiso...");
+		// quien realiza la accion
+		UsuarioPermisos up =(UsuarioPermisos) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		System.out.println("... con el usuario:"+up.getUsername());
 		System.out.println(tp);
 		int idTP = serviceTP.save(tp);
 		
