@@ -21,7 +21,7 @@ public class TipoPermisoServiceImpl implements TipoPermisoService {
 	}
 
 	@Override
-	@Transactional 
+	@Transactional
 	public int save(TipoPermiso entidad) {
 		return dao.create(entidad);
 	}
