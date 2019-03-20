@@ -38,19 +38,23 @@
 	
 	<security:authentication-manager>
 	<!-- ejemplo de autenticacion/autorizacion en fichero -->
-	<!--
+	
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="user" password="password" authorities="ROLE_USER"/>
+				<security:user name="user" password="$2a$10$GpnkljYu1ysDr0fsR9ZXSObjw8cta5x2g0.SxfdLYUTkcP4za4yx6" authorities="ROLE_USER"/>
 			</security:user-service> 
+			<security:password-encoder hash="bcrypt"/>
 		</security:authentication-provider>
-			-->
+	
 		<!-- servicio para Autenticarse -->
 		<!-- 	
 		<security:authentication-provider user-service-ref="customUserDetailService"/>
 		 -->
+		 <!-- 
 		 <security:authentication-provider ref="customAuthenticationProvider"/>
+		 <security:password-encoder hash="sha-256"/>
 		 
+		  -->
 			
 	</security:authentication-manager>
 

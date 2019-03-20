@@ -2,6 +2,7 @@ package net.rodor.springmvc.security;
 
 import java.util.Collection;
 
+import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,7 +26,6 @@ public class UsuarioPermisos implements UserDetails {
 	@Override
 	public String getPassword() {
 		// se deberia de cargar utilizando la base de datos para traerse la password del usuario accedido por nombre.
-		System.out.println("Accediendo a su password para chequear???");
 		return "password";
 	}
 
