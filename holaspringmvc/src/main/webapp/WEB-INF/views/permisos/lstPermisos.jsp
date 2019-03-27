@@ -49,13 +49,21 @@
 			<pre>
 				Nombre: <input type="text" name="nombre" value="nombre" />
 				descripcion: <input type="text" name="descripcion" value="descripcion" />
+				<!--  este boton se ve si tiene el rol oportuno -->
+				<sec:authorize access="hasAuthority('ROLE_USER')">
 				<input type="submit" name="Add Nuevo  Permiso"
 					value="Add Nuevo  Permiso" />
+					</sec:authorize>
 			</pre>
 			<sec:csrfInput/>
 		</form>
 	</div>
-
+	<div class="container">
+	<sec:authorize access="${estaAutorizado}">
+		<h3>Esto solo se muestra si tienes el rol oportuno.</h3>
+	</sec:authorize>
+	</div>
+	
 
 
 </body>

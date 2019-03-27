@@ -2,8 +2,14 @@ package net.rodor.springmvc;
 
 import java.util.List;
 
+import javax.annotation.security.RolesAllowed;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,7 +32,11 @@ public class TipoPermisoController {
 	public void setService(TipoPermisoService service) {
 		this.serviceTP = service;
 	}
-/** quitar***/
+	@ModelAttribute("estaAutorizado")
+	public boolean estaAutorizado(Authentication auth){
+		return auth != null
+				&& auth.getAuthorities().contains(AuthorityUtils.createAuthorityList("ROLE_ADMIN").get(0));
+	}
 	@RequestMapping("/")
 	public String goPermisos(ModelMap model){
 		System.out.println("Entrando en goPermisos");
@@ -37,13 +47,17 @@ public class TipoPermisoController {
 		return "permisos/lstPermisos";
 	}
 	
-	//@RequestMapping(value = "/permisos/add", method = RequestMethod.POST)
+//@PreAuthorize("hasRole('ROLE_ADMIN')")
+	//@RolesAllowed("ROLE_USER")
+	
 	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public String addTipoPermiso(@ModelAttribute("tp") TipoPermiso tp, ModelMap model) {
 		
 		System.out.println("Entrando en addTipoPermiso...");
 		// quien realiza la accion
-		UsuarioPermisos up =(UsuarioPermisos) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		//UsuarioPermisos up =(UsuarioPermisos) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+		UserDetails up = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		System.out.println("... con el usuario:"+up.getUsername());
 		System.out.println(tp);
 		int idTP = serviceTP.save(tp);

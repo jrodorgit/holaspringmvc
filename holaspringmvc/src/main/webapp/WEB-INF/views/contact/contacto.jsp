@@ -1,5 +1,8 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,13 +25,16 @@
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<script src="<c:url value="/resources/js/ckeditor.js"/>"></script>
+
+
 </head>
 <body>
-<jsp:include page="../header.jsp"/>
+<jsp:include page="../header.jsp" />
 	<div class="container">
 		<div class="row">
-		Esto mostraria una pagina publica de contacto!
-		</div>
-	</div>
+	<h1>Esto es un texto de contacto</h1>
+</div></div>
+
 </body>
 </html>

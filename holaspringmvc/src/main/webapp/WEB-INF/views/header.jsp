@@ -14,6 +14,7 @@
 		<ul class="nav navbar-nav">
 			<li><a href="<spring:url value="/permisos/"/>"><spring:message code="label.permisos"/></a></li>
 			<li><a href="<spring:url value="/contact/"/>"><spring:message code="label.contacto"/></a></li>
+			<li><a href="<spring:url value="/summernote/"/>"><spring:message code="label.summer"/></a></li>
 			<!--  en funcion de si esta identificado o no mostraremos unas opciones de menu u otras -->
 			<c:choose>
 				<c:when test="${authenticated}">

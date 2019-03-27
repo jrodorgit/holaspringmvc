@@ -13,7 +13,7 @@
 	<!--  bean para manejar expresiones -->
 	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler"/>
 
-	<security:http auto-config="true" use-expressions="false">
+	<security:http auto-config="true" use-expressions="true">
 		<!--  por defecto spring mostrara un pagina con un form de autenticacion -->
 		
 		<!--  podemos decirle que muestra una venta tipo pop de autenticacion 
@@ -28,8 +28,11 @@
 		<!-- logout -->
 		<security:logout logout-url="/logout/" logout-success-url="/login?logout=true"/>
 		
-		<security:intercept-url pattern="/permisos/*" access="ROLE_USER"/>
-		<security:intercept-url pattern="/**" access="ROLE_ANONYMOUS,ROLE_USER"/>
+		<security:intercept-url pattern="/permisos/*" access="hasAuthority('ROLE_USER')" />
+		<!-- <security:intercept-url pattern="/permisos/*" access="principal.username == 'user'" /> -->
+		<!-- <security:intercept-url pattern="/**" access="hasRole('ROLE_ANONYMOUS') or hasRole('ROLE_USER')" /> -->
+		<security:intercept-url pattern="/**" access="permitAll" />
+		
 	</security:http>
 	
 	
@@ -41,7 +44,7 @@
 	
 		<security:authentication-provider>
 			<security:user-service>
-				<security:user name="user" password="$2a$10$GpnkljYu1ysDr0fsR9ZXSObjw8cta5x2g0.SxfdLYUTkcP4za4yx6" authorities="ROLE_USER"/>
+				<security:user name="user" password="$2a$10$GpnkljYu1ysDr0fsR9ZXSObjw8cta5x2g0.SxfdLYUTkcP4za4yx6" authorities="ROLE_USER,ROLE_ADMIN"/>
 			</security:user-service> 
 			<security:password-encoder hash="bcrypt"/>
 		</security:authentication-provider>
